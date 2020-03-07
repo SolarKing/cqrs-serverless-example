@@ -1,0 +1,4 @@
+createHackathon:
+  handler: src/domains/hackathon/index.createHackathon
+testSaga:
+  handler: src/domains/hackathon/index.testSaga
