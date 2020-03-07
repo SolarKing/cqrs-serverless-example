@@ -3,6 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm lint"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["npx eslint --fix", "git add"]
+  },
+  "scripts": {
+    "lint": "npx eslint --ignore-path .gitignore --fix"
+  },
   "dependencies": {
     "bluebird": "^3.7.2",
     "bottlejs": "^1.7.2",
@@ -16,6 +28,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3"
   }
 }
