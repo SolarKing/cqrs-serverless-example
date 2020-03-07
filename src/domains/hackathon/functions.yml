@@ -1,4 +1,29 @@
 createHackathon:
-  handler: src/domains/hackathon/index.createHackathon
+  handler: src/domains/hackathon/handlers/createHackathon
+  events:
+    - http:
+        path: hackathons/create-hackathon
+        method: post
+        cors: true
 testSaga:
-  handler: src/domains/hackathon/index.testSaga
+  handler: src/domains/hackathon/handlers/testSaga
+  events:
+    - http:
+        path: hackathons/test-saga
+        method: get
+        cors: true
+getAllHackathons:
+  handler: src/domains/hackathon/handlers/getAllHackathons
+  events:
+    - http:
+        path: hackathons/get-all-hackathons
+        method: get
+        cors: true
+refreshProjections:
+  handler: src/domains/hackathon/handlers/refreshProjections
+  events:
+    - http:
+        path: hackathons/refresh-projections
+        method: get
+        cors: true
+        

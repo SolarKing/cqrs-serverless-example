@@ -6,10 +6,16 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "bottlejs": "^1.7.2",
+    "jsonapi-serializer": "^3.6.6",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.4",
     "serverless-cqrs": "^0.2.0-alpha.0",
     "serverless-cqrs.memory-adapter": "^0.1.0",
     "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
   }
 }

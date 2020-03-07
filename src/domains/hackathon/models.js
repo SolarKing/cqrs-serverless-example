@@ -1,16 +1,20 @@
-const { readModelBuilder, writeModelBuilder } = require('serverless-cqrs')
+const { readModelBuilder, writeModelBuilder } = require('serverless-cqrs');
 
-const actions = require("./actions")
-const reducer = require("./reducer")
-const mongoAdapterBuilder = require('../../utils/mongoAdapterBuilder')
+const actions = require('./actions');
+const reducer = require('./reducer');
+const mongoAdapterBuilder = require('../../utils/mongoAdapterBuilder');
+
+// TODO: change this to different endpoints based on env / dev vs prod
+
+const mongoUri = 'mongodb+srv://cqrs-serverless-eventstore-read-write:11&YvF*!Cavq@cqrs-serverless-eventstore-naxf6.mongodb.net/test?retryWrites=true&w=majority';
 
 const initModels = async () => {
   const adapter = await mongoAdapterBuilder.build({
-    entityName: "hackathon"
+    entityName: 'hackathon',
   }, {
-    url: "mongodb://localhost:27017",
-    dbName: "eventstore"
-  })
+    url: mongoUri,
+    dbName: 'eventstore',
+  });
   return {
     writeModel: writeModelBuilder.build({
       actions,
@@ -22,9 +26,9 @@ const initModels = async () => {
       adapter,
       eventAdapter: adapter,
     }),
-    adapter
-  }
-}
+    adapter,
+  };
+};
 
 
-module.exports = initModels
+module.exports = initModels;
