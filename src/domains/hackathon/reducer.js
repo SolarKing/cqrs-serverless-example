@@ -6,7 +6,6 @@ const initState = {
 };
 
 const reducer = (state, event = {}) => {
-  console.log(state, event);
   switch (event.type) {
     case eventTypes.HACKATHON_DETAILS_UPDATED: {
       return {
