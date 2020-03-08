@@ -8,12 +8,15 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: npm install
-      uses: actions/npm@master
+    - name: Checkout source code
+      uses: actions/checkout@master
+    - name: Install Node.js
+      uses: actions/setup-node@v1
       with:
-        args: install
-    - name: serverless deploy
+        node-version: '12.x'
+    - name: Install dependencies
+      run: npm install
+    - name: Deploy with sls
       uses: serverless/github-action@master
       with:
         args: deploy
